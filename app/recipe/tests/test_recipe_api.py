@@ -61,7 +61,10 @@ class PublicRecipeAPITests(TestCase):
 class PrivateRecipeAPITests(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.user = create_user(email='user@example.com', password='testpass123')
+        self.user = create_user(
+             email='user@example.com',
+             password='testpass123'
+            )
         self.client.force_authenticate(self.user)
 
     def test_retrieve_recipes(self):
@@ -79,7 +82,10 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_recipe_list_limited_to_user(self):
         """Test list of recipes is limited to authenticated user."""
-        other_user = create_user(email='other@example.com', password='testpass123')
+        other_user = create_user(
+             email='other@example.com',
+             password='testpass123'
+            )
 
         create_recipe(user=self.user)
         create_recipe(user=other_user)
@@ -169,7 +175,9 @@ class PrivateRecipeAPITests(TestCase):
         payload = {'user': new_user.id}
         url = detail_url(recipe_id=recipe.id)
         self.client.patch(url, payload)
-
+0: E501 line too long (81 > 79 characters)
+7
+./recipe/tests/test_recipe_api.py:82:80
         recipe.refresh_from_db()
         self.assertEqual(recipe.user, self.user)
 
