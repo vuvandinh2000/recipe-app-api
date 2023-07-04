@@ -140,7 +140,9 @@ class PrivateRecipeAPITests(TestCase):
         recipe.refresh_from_db()
         self.assertEqual(recipe.link, original_link)
         self.assertEqual(recipe.title, payload['title'])
-        self.assertEqual(recipe.user, self.user)
+        self.assertEqual(recipe.user, self.0: E501 line too long (81 > 79 characters)
+7
+./recipe/tests/test_recipe_api.py:82:80user)
 
     def test_full_update(self):
         """Test full update recipe."""
