@@ -334,7 +334,7 @@ class PrivateRecipeAPITests(TestCase):
             ).exists()
             self.assertTrue(exists)
 
-    def test_create_tag_on_update(self):
+    def test_create_ingredient_on_update(self):
         """Test create new ingredient when update a receipe."""
         recipe = create_recipe(user=self.user)
 
