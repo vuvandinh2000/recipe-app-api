@@ -405,9 +405,9 @@ class ImageUploadTests(TestCase):
         """Test uploading an image to a recipe."""
         url = image_upload_url(self.recipe.id)
         with tempfile.NamedTemporaryFile(suffix='.jpg') as image_file:
-            img = Image.new('RGB', (10, 10)) # image in MEMORY
-            img.save(image_file, format='JPEG') # image save to image_file
-            image_file.seek(0) # image_file pointer dang tro den cuoi file,
+            img = Image.new('RGB', (10, 10))  # image in MEMORY
+            img.save(image_file, format='JPEG')  # image save to image_file
+            image_file.seek(0)  # image_file pointer dang tro den cuoi file,
             # -> tro lai ve dau file (de upload)
             payload = {'image': image_file}
             res = self.client.post(url, payload, format='multipart')
