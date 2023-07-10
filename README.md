@@ -45,3 +45,9 @@ sudo usermod -aG docker ec2-user # cap quyen cho user ec2-user quyen docker root
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
+
+Gia su postgres va nginx va app dang chay, ta can restart chi app thi chay cau lenh:
+```bash
+docker-compose -f docker-compose-deploy.yml up --no-deps -d app
+```
+trong do no-deps se khong restart dependencies cua app
